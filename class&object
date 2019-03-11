@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Student{
+	private: 
+		string name;
+		int age;
+	public:
+		Student(){}
+		Student(string n,int a):name(n),age(a){}//参数初始化列表
+		~Student(){}
+		void display();
+};
+void Student::display(){
+	cout<<this->name<<'\t'<<this->age<<endl;
+}
+int main() {
+	// your code goes here
+	Student stu1("Lihua",18);
+	Student* stu2 = new Student("Louhang",20);
+	if(stu2 == nullptr)//使用new操作符时，可能会发生内存不足申请失败，返回NULL指针要判断一下
+		return 0;
+	cout<<sizeof(stu1)<<' '<<sizeof(stu2)<<endl;
+	stu1.display();
+	(*stu2).display();
+	return 0;
+}
